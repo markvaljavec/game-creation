@@ -5,7 +5,13 @@ import java.awt.Canvas;
 public class Game extends Canvas {
 	
 	private static final long serialVersionUID = -197048722577070546L;
-
+	
+	public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
+	
+	public Game() {
+		new Window(WIDTH, HEIGHT, "Let's Build a Game!", this);
+	}
+	
 	public synchronized void start() {
 		
 	}
@@ -16,7 +22,7 @@ public class Game extends Canvas {
 	
 	public static void main(String[] args) {
 		
-		
+		new Game();
 		
 	}
 }
