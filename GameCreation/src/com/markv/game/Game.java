@@ -9,7 +9,7 @@ public class Game extends Canvas {
 	public static final int WIDTH = 640, HEIGHT = WIDTH / 12 * 9;
 	
 	public Game() {
-		new Window(WIDTH, HEIGHT, "Let's Build a Game!", this);
+		new Window(WIDTH, HEIGHT, "Superior game belonging to Mark", this);
 	}
 	
 	public synchronized void start() {

@@ -11,6 +11,6 @@ public abstract class GameObject {
 }
 
 enum GameObjectID{
-	Player(),
-	Enemy();
+	PLAYER(),
+	BASIC_ENEMY();
 }
