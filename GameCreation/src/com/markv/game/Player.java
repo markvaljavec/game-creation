@@ -18,7 +18,9 @@ public class Player extends GameObject {
 		x += velX;
 		y += velY;
 		
-		if(x > Game.WIDTH-33) x = Game.WIDTH-32;
+		
+		//My version of collision with a wall
+		if(x > Game.WIDTH-32) x = Game.WIDTH-32;
 		if(x < 0) x = 0;
 		if(y > Game.HEIGHT-48) y = Game.HEIGHT-48;
 		if(y < 0) y = 0;
@@ -31,6 +33,6 @@ public class Player extends GameObject {
 		
 	}
 	
-	
+	//His version of collision with a wall
 	
 }
