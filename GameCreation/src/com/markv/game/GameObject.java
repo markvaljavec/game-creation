@@ -1,16 +1,26 @@
 package com.markv.game;
 
-public abstract class GameObject {
-	float x;
-	float y;
-	abstract void render();
-	abstract void tick();
-	abstract float getX();
-	abstract float getY();
-	abstract GameObjectID getID();
-}
+import java.awt.Graphics;
 
-enum GameObjectID{
-	PLAYER(),
-	BASIC_ENEMY();
+public abstract class GameObject {
+
+	protected int x, y;
+	protected ID id;
+	protected int velX, velY;
+	
+	public GameObject(int x, int y, ID id) {
+		this.x = x;
+		this.y = y;
+		this.id = id;
+	}
+	
+	public abstract void tick();
+	public abstract void render(Graphics g);
+	
+	public void setX(int x) {
+		this.x = x;
+	}
+	public void setY(int y) {
+		this.y = y;
+	}
 }
