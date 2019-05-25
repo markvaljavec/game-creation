@@ -4,6 +4,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferStrategy;
+import java.util.Random;
 
 public class Game extends Canvas implements Runnable{
 	
@@ -16,6 +17,8 @@ public class Game extends Canvas implements Runnable{
 	
 	private Handler handler;
 	
+	private Random r;
+	
 	public Game() {
 		handler = new Handler();
 		
@@ -23,8 +26,10 @@ public class Game extends Canvas implements Runnable{
 		
 		new Window(WIDTH, HEIGHT, "Superior game belonging to Mark", this);
 		
+		r = new Random();
+		
 		handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player));
-		handler.addObject(new Player(WIDTH/2+64, HEIGHT/2-32, ID.Player2));
+		for(int i = 0; i < 20; i++) handler.addObject(new BasicEnemy(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.BasicEnemy));
 	}
 	
 	public synchronized void start() {
