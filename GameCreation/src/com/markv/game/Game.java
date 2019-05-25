@@ -14,8 +14,17 @@ public class Game extends Canvas implements Runnable{
 	private Thread thread;
 	private boolean running = false;
 	
+	private Handler handler;
+	
 	public Game() {
+		handler = new Handler();
+		
+		this.addKeyListener(new KeyInput(handler));
+		
 		new Window(WIDTH, HEIGHT, "Superior game belonging to Mark", this);
+		
+		handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.Player));
+		handler.addObject(new Player(WIDTH/2+64, HEIGHT/2-32, ID.Player2));
 	}
 	
 	public synchronized void start() {
@@ -65,7 +74,7 @@ public class Game extends Canvas implements Runnable{
 	}
 	
 	private void tick() {
-		
+		handler.tick();
 	}
 
 	private void render() {
@@ -77,6 +86,8 @@ public class Game extends Canvas implements Runnable{
 		Graphics g = bs.getDrawGraphics();
 		g.setColor(Color.black);
 		g.fillRect(0, 0,  WIDTH, HEIGHT);
+		
+		handler.render(g);
 		
 		g.dispose();
 		bs.show();
