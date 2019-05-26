@@ -2,11 +2,11 @@ package com.markv.game;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.util.Random;
 
 public class BasicEnemy extends GameObject{
-	public BasicEnemy(int x, int y, ID id) {
-		super(x, y, id);
-		
+	public BasicEnemy(Random r) {
+		super(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BasicEnemy);
 		velX = 5;
 		velY = 5;
 	}
